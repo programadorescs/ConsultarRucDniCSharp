@@ -65,7 +65,7 @@ namespace ConsultarRucDniCSharp
         {
           lblCarga.Visible = true;
           var cliente = await ApisPeru_ConsultarDocumento.ConsultarRuc(mApiRest, txtBuscar.Text.Trim());
-          lblCarga.Visible = true;
+          lblCarga.Visible = false;
 
           if (cliente != null)
           {
