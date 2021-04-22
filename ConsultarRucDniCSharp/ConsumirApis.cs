@@ -155,6 +155,55 @@ namespace ConsultarRucDniCSharp
     }
   }
 
+  public class ApiPeruDev_ConsultarDocumento_HttpWebRequest
+  {
+    public static async Task<ApiPeruDevData_Dni> ConsultarDni(ApiRest mApiRest, string nroDocumento)
+    {
+      var result = await Task.Run(() =>
+      {
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(mApiRest.apiDni + nroDocumento);
+        httpWebRequest.ContentType = "application/json";
+        httpWebRequest.Headers.Add("Authorization", "Bearer " + mApiRest.token);
+        httpWebRequest.Method = "GET";
+
+        // Recibir la respuesta de la consulta
+        ApiPeruDevData_Dni entidad;
+        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+        {
+          entidad = JsonConvert.DeserializeObject<ApiPeruDevData_Dni>(streamReader.ReadToEnd());
+        }
+
+        return entidad;
+      });
+      return result;
+    }
+
+    public static async Task<ApiPeruDevData_Ruc> ConsultarRuc(ApiRest mApiRest, string nroDocumento)
+    {
+      var result = await Task.Run(() =>
+      {
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(mApiRest.apiDni + nroDocumento);
+        httpWebRequest.ContentType = "application/json";
+        httpWebRequest.Headers.Add("Authorization", "Bearer " + mApiRest.token);
+        httpWebRequest.Method = "GET";
+
+        // Recibir la respuesta de la consulta
+        ApiPeruDevData_Ruc entidad;
+        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+        {
+          entidad = JsonConvert.DeserializeObject<ApiPeruDevData_Ruc>(streamReader.ReadToEnd());
+        }
+
+        return entidad;
+      });
+      return result;
+    }
+  }
+
   // Validar CPE
   public class ApiPeruDev_ValidarCpe_HttpWebRequest
   {

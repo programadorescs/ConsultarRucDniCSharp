@@ -133,8 +133,9 @@
       // 
       // lblCarga
       // 
-      this.lblCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblCarga.ForeColor = System.Drawing.Color.Red;
+      this.lblCarga.BackColor = System.Drawing.Color.Yellow;
+      this.lblCarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCarga.ForeColor = System.Drawing.Color.DarkGreen;
       this.lblCarga.Location = new System.Drawing.Point(15, 138);
       this.lblCarga.Name = "lblCarga";
       this.lblCarga.Size = new System.Drawing.Size(313, 23);
